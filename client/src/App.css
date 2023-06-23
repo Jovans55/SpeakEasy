@@ -1,7 +1,40 @@
 body{
-  background-color: #132151;
+  background-color: #262626;
+  margin: 0%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.app{
-  color: white;
+.joinChatContainer{
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+  gap: 15px;
+  border: 7px solid #0b0b0b;
+  border-radius: 17px;
+  text-align: center;
+  font-size: 200%;
+  margin-bottom: 200px;
+  box-shadow: 15px 15px;
+  background-color: #228F63;
+  text-shadow: 4px 4px black;
+}
+
+.joinChatContainer input {
+  font-size: 25px;
+  border: 4px solid #0b0b0b;
+  border-radius: 10px;
+  padding: 5px;
+}
+
+.joinChatContainer button {
+  border: 4px solid #0b0b0b;
+  border-radius: 10px;
+  padding: 5px;
+}
+
+.joinChatContainer button:hover {
+  box-shadow: 3px 3px;
 }
