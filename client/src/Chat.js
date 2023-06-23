@@ -13,8 +13,10 @@ function Chat({ socket, username, room }) {
     const formattedHours = hours % 12 || 12;
     const formattedMinutes = minutes < 10 ? `0${minutes}` : minutes;
     const formattedTime = `${formattedHours}:${formattedMinutes} ${ampm}`;
+    const messageId = Math.floor(Math.random() * 3587);
 
     const messageData = {
+      id: messageId,
       room: room,
       username: username,
       message: message,
@@ -28,7 +30,18 @@ function Chat({ socket, username, room }) {
 
   useEffect(() => {
     socket.on("receive_message", (data) => {
-      setMessageList((list) => [...list, data]);
+      setMessageList((list) => {
+        const newList = [...list];
+        const existingMessage = newList.find(
+          (message) =>
+            message.username === data.username &&
+            message.message === data.message
+        );
+        if (!existingMessage) {
+          newList.push(data);
+        }
+        return newList;
+      });
     });
   }, [socket]);
 
@@ -42,6 +55,7 @@ function Chat({ socket, username, room }) {
           {messageList.map((data) => {
             return (
               <div
+                key={data.id}
                 className="message"
                 id={username === data.username ? "you" : "other"}
               >
@@ -67,7 +81,7 @@ function Chat({ socket, username, room }) {
           onChange={(e) => {
             setMessage(e.target.value);
           }}
-          onKeyPress={(e) => {
+          onKeyUp={(e) => {
             e.key === "Enter" && sendMessage();
           }}
         />
