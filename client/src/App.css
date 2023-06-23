@@ -38,3 +38,19 @@ body{
 .joinChatContainer button:hover {
   box-shadow: 3px 3px;
 }
+
+/* ________ CHAT _________ */
+
+.chat-window{
+  border: 7px solid #0b0b0b;
+  border-radius: 17px;
+  text-align: center;
+  font-size: 200%;
+  margin-bottom: 200px;
+  box-shadow: 15px 15px;
+  background-color: #228F63;
+}
+
+.chat-window * {
+  border: 5px solid red;
+}

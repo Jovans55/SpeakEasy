@@ -17,6 +17,12 @@ function App() {
     }
   };
 
+  const handleKeyPress = (event) => {
+    if (event.key === "Enter") {
+      joinRoom();
+    }
+  };
+
   return (
     <div className="App">
       {!showChat ? (
@@ -34,6 +40,7 @@ function App() {
               onChange={(e) => {
                 setUsername(e.target.value);
               }}
+              onKeyUp={handleKeyPress}
             />
             <input
               type="text"
@@ -41,7 +48,7 @@ function App() {
               onChange={(e) => {
                 setRoom(e.target.value);
               }}
-              onKeyUp={joinRoom}
+              onKeyUp={handleKeyPress}
             />
             <button onClick={joinRoom}>Start Chatting!</button>
           </div>
