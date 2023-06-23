@@ -47,9 +47,9 @@ function Chat({ socket, username, room }) {
 
   return (
     <div className="chat-window">
-      <div className="chat-header">
+      <header className="chat-header">
         <p>LIVE CHAT</p>
-      </div>
+      </header>
       <div className="chat-body">
         <ScrollToBottom className="message-container">
           {messageList.map((data) => {
@@ -73,7 +73,7 @@ function Chat({ socket, username, room }) {
           })}
         </ScrollToBottom>
       </div>
-      <div className="chat-footer">
+      <footer className="chat-footer">
         <input
           type="text"
           value={message}
@@ -86,7 +86,7 @@ function Chat({ socket, username, room }) {
           }}
         />
         <button onClick={sendMessage}>send</button>
-      </div>
+      </footer>
     </div>
   );
 }
