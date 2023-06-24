@@ -5,6 +5,7 @@ body{
   display: flex;
   justify-content: center;
   align-items: center;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .joinChatContainer{
@@ -12,25 +13,25 @@ body{
   flex-direction: column;
   padding: 30px;
   gap: 15px;
-  border: 7px solid #0b0b0b;
+  border: 7px solid #161616;
   border-radius: 17px;
   text-align: center;
   font-size: 200%;
   margin-bottom: 200px;
-  box-shadow: 15px 15px;
+  box-shadow: 15px 15px 5px;
   background-color: #228F63;
   text-shadow: 4px 4px black;
 }
 
 .joinChatContainer input {
   font-size: 25px;
-  border: 4px solid #0b0b0b;
+  border: 4px solid #161616;
   border-radius: 10px;
   padding: 5px;
 }
 
 .joinChatContainer button {
-  border: 4px solid #0b0b0b;
+  border: 4px solid #161616;
   border-radius: 10px;
   padding: 5px;
 }
@@ -41,16 +42,101 @@ body{
 
 /* ________ CHAT _________ */
 
-.chat-window{
-  border: 7px solid #0b0b0b;
+.chat-window {
+  border: 10px solid #161616;
   border-radius: 17px;
-  text-align: center;
-  font-size: 200%;
+  font-size: 3rem;
   margin-bottom: 200px;
-  box-shadow: 15px 15px;
+  box-shadow: 15px 15px 5px;
   background-color: #228F63;
 }
 
-.chat-window * {
-  border: 5px solid red;
+.chat-header {
+  padding: 1px 15px;
+  position: relative;
+  top: 0;
+  z-index: 9999;
+  background-color: #015B37;
+}
+
+.chatBodyHolder{
+  display: flex;
+  align-items: stretch;
+}
+
+.chat-body{
+  width: 50vw;
+  height: 50vw;
+  flex-grow: 1;
+}
+
+#you {
+  display: inline-block;
+  font-size: 30px;
+  margin-left: 55%;
+  padding-left: 25px;
+  border-radius: 45px;
+}
+
+#you .message-content{
+  display: inline-block;
+  background-color: #658FB2;
+  font-size: 30px;
+  padding-left: 25px;
+  padding-right: 50px;
+  border-radius: 45px;
+}
+
+#you .message-meta{
+  margin-right: 10px;
+  text-align: right;
+}
+
+#other .message-content{
+  display: inline-block;
+  margin-left: 5px;
+  background-color: #073357;
+  font-size: 30px;
+  padding-left: 25px;
+  padding-right: 50px;
+  border-radius: 45px;
+}
+
+.message-meta{
+  display: inline-block;
+  font-size: 17px;
+}
+
+#author{
+  font-weight: bold;
+}
+
+.rooms{
+  width: 20vw;
+  font-size: 35px;
+  background-color: #10764D;
+}
+
+.chat-footer{
+  text-align: center;
+  background-color: #015B37;
+}
+
+.chat-footer input{
+  border: 3px solid black;
+  border-radius: 15px 0px 0px 15px;
+  font-size: 25px;
+  margin-bottom: 20px;
+  padding: 5px;
+}
+
+.chat-footer button{
+  border: 3px solid black;
+  border-radius: 0px 15px 15px 0px;
+  font-size: 25px;
+  padding: 5px;
+}
+
+.chat-footer button:hover{
+  box-shadow: 4px 4px 15px;
 }

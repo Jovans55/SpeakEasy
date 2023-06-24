@@ -48,30 +48,48 @@ function Chat({ socket, username, room }) {
   return (
     <div className="chat-window">
       <header className="chat-header">
-        <p>LIVE CHAT</p>
+        <p>Welcome to the live chat!</p>
       </header>
-      <div className="chat-body">
-        <ScrollToBottom className="message-container">
-          {messageList.map((data) => {
-            return (
-              <div
-                key={data.id}
-                className="message"
-                id={username === data.username ? "you" : "other"}
-              >
-                <div>
-                  <div className="message-content">
-                    <p>{data.message}</p>
-                  </div>
-                  <div className="message-meta">
-                    <p id="time">{data.time}</p>
-                    <p id="author">{data.username}</p>
-                  </div>
+      <div className="chatBodyHolder">
+        <section className="rooms">
+          <p>ROOM: {room}</p>
+          <p>Users: {room}</p>
+        </section>
+        <section className="chat-body">
+          <ScrollToBottom className="message-container">
+            {messageList.map((data) => {
+              return (
+                <div
+                  key={data.id}
+                  className="message"
+                  id={username === data.username ? "you" : "other"}
+                >
+                  {username === data.username ? (
+                    <div>
+                      <div className="message-meta">
+                        <p id="author">{data.username}</p>
+                        <p id="time">{data.time}</p>
+                      </div>
+                      <div className="message-content">
+                        <p>{data.message}</p>
+                      </div>
+                    </div>
+                  ) : (
+                    <div>
+                      <div className="message-content">
+                        <p>{data.message}</p>
+                      </div>
+                      <div className="message-meta">
+                        <p id="author">{data.username}</p>
+                        <p id="time">{data.time}</p>
+                      </div>
+                    </div>
+                  )}
                 </div>
-              </div>
-            );
-          })}
-        </ScrollToBottom>
+              );
+            })}
+          </ScrollToBottom>
+        </section>
       </div>
       <footer className="chat-footer">
         <input
