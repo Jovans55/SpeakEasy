@@ -67,6 +67,10 @@ body{
 }
 
 .chat-body{
+  display: flex;
+  justify-content: right;
+  flex-direction: column;
+  text-align: right;
   width: 40vw;
   height: 25vw;
   flex-grow: 1;
@@ -75,38 +79,39 @@ body{
   overflow-x: hidden;
 }
 
-.message{
-  overflow: hidden
+.chat-body #other{
+  text-align: left;
 }
 
 #you {
+  border-bottom: 5px solid rgba(0, 0, 0, 0.502);
   display: inline-block;
-  margin-left: 55%;
-  padding-left: 25px;
-  border-radius: 45px;
+}
+
+#other{
+  border-bottom: 5px solid rgba(0, 0, 0, 0.502);
+  padding: 5px;
 }
 
 #you .message-content{
   display: inline-block;
   background-color: #658FB2;
+  margin-left: 5px;
   font-size: 1.3vw;
-  padding-left: 25px;
-  padding-right: 50px;
+  padding: 1.3vw;
   border-radius: 45px;
 }
 
 #you .message-meta{
-  margin-right: 10px;
   text-align: right;
 }
 
 #other .message-content{
   display: inline-block;
   margin-left: 5px;
-  background-color: #073357;
+  background-color: #0b4778;
   font-size: 1.3vw;
-  padding-left: 25px;
-  padding-right: 50px;
+  padding: 1.3vw;
   border-radius: 45px;
 }
 
@@ -147,8 +152,4 @@ body{
 
 .chat-footer button:hover{
   box-shadow: 4px 4px 15px;
-}
-
-.messageDiv{
-  background-color: purple;
 }

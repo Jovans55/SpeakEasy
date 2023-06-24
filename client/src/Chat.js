@@ -42,7 +42,7 @@ function Chat({ socket, username, room }) {
         return newList;
       });
     });
-  }, [socket]);
+  }, [socket, setMessageList]);
 
   return (
     <div className="chat-window">
@@ -63,21 +63,23 @@ function Chat({ socket, username, room }) {
               >
                 {username === data.username ? (
                   <div className="messageDiv">
-                    <div className="message-meta">
-                      <p id="author">{data.username}</p>
-                      <p id="time">{data.time}</p>
-                    </div>
+                    <p className="message-meta" id="author">
+                      {data.username}:
+                    </p>
                     <span className="message-content">{data.message}</span>
+                    <span className="message-meta" id="time">
+                      {data.time}
+                    </span>
                   </div>
                 ) : (
-                  <div>
-                    <div className="message-content">
-                      <p>{data.message}</p>
-                    </div>
-                    <div className="message-meta">
-                      <p id="author">{data.username}</p>
-                      <p id="time">{data.time}</p>
-                    </div>
+                  <div className="messageDiv">
+                    <p className="message-meta" id="author">
+                      {data.username}:
+                    </p>
+                    <span className="message-content">{data.message}</span>
+                    <span className="message-meta" id="time">
+                      {data.time}
+                    </span>
                   </div>
                 )}
               </div>
