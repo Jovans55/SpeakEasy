@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import ScrollToBottom from "react-scroll-to-bottom";
 
 function Chat({ socket, username, room }) {
   const [message, setMessage] = useState("");
@@ -48,47 +47,42 @@ function Chat({ socket, username, room }) {
   return (
     <div className="chat-window">
       <header className="chat-header">
-        <p>Welcome to the live chat!</p>
+        <p>Welcome to {room} SpeakEasy!</p>
       </header>
       <div className="chatBodyHolder">
         <section className="rooms">
-          <p>ROOM: {room}</p>
           <p>Users: {room}</p>
         </section>
         <section className="chat-body">
-          <ScrollToBottom className="message-container">
-            {messageList.map((data) => {
-              return (
-                <div
-                  key={data.id}
-                  className="message"
-                  id={username === data.username ? "you" : "other"}
-                >
-                  {username === data.username ? (
-                    <div>
-                      <div className="message-meta">
-                        <p id="author">{data.username}</p>
-                        <p id="time">{data.time}</p>
-                      </div>
-                      <div className="message-content">
-                        <p>{data.message}</p>
-                      </div>
+          {messageList.map((data) => {
+            return (
+              <div
+                key={data.id}
+                className="message"
+                id={username === data.username ? "you" : "other"}
+              >
+                {username === data.username ? (
+                  <div className="messageDiv">
+                    <div className="message-meta">
+                      <p id="author">{data.username}</p>
+                      <p id="time">{data.time}</p>
                     </div>
-                  ) : (
-                    <div>
-                      <div className="message-content">
-                        <p>{data.message}</p>
-                      </div>
-                      <div className="message-meta">
-                        <p id="author">{data.username}</p>
-                        <p id="time">{data.time}</p>
-                      </div>
+                    <span className="message-content">{data.message}</span>
+                  </div>
+                ) : (
+                  <div>
+                    <div className="message-content">
+                      <p>{data.message}</p>
                     </div>
-                  )}
-                </div>
-              );
-            })}
-          </ScrollToBottom>
+                    <div className="message-meta">
+                      <p id="author">{data.username}</p>
+                      <p id="time">{data.time}</p>
+                    </div>
+                  </div>
+                )}
+              </div>
+            );
+          })}
         </section>
       </div>
       <footer className="chat-footer">
