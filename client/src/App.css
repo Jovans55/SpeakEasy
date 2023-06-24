@@ -65,8 +65,8 @@ body{
 }
 
 .chat-body{
-  width: 50vw;
-  height: 50vw;
+  width: 40vw;
+  height: 35vw;
   flex-grow: 1;
 }
 
