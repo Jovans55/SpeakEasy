@@ -98,7 +98,7 @@ function Chat({ socket, username, room }) {
         <section
           className="chat-body"
           style={{
-            display: displayedUsers && isSmallScreen ? "none" : "block",
+            display: displayedUsers && isSmallScreen ? "none" : "inline-block",
           }}
         >
           <h3
