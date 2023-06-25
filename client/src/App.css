@@ -100,6 +100,7 @@ body{
   font-size: 1.3vw;
   padding: 1.3vw;
   border-radius: 45px;
+  color: white;
 }
 
 #you .message-meta{
@@ -113,11 +114,12 @@ body{
   font-size: 1.3vw;
   padding: 1.3vw;
   border-radius: 45px;
+  color: white;
 }
 
 .message-meta{
   display: inline-block;
-  font-size: 17px;
+  font-size: 1.3vw;
 }
 
 #author{
