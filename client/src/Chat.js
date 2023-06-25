@@ -5,6 +5,7 @@ function Chat({ socket, username, room }) {
   const [messageList, setMessageList] = useState([]);
   const [userList, setUserList] = useState([]);
   const [displayedUsers, setDisplayedUsers] = useState(false);
+  const [isSmallScreen, setIsSmallScreen] = useState(false);
 
   const sendMessage = async () => {
     const currentTime = new Date();
@@ -62,9 +63,17 @@ function Chat({ socket, username, room }) {
       setUserList(uniqUsers);
     });
 
+    const handleResize = () => {
+      setIsSmallScreen(window.innerWidth <= 600);
+    };
+
+    window.addEventListener("resize", handleResize);
+    handleResize();
+
     return () => {
       socket.off("receive_message");
       socket.off("user_list");
+      window.removeEventListener("resize", handleResize);
     };
   }, [socket, setMessageList, room, username]);
 
@@ -75,17 +84,23 @@ function Chat({ socket, username, room }) {
       </header>
       <div className="chatBodyHolder">
         <button onClick={displayUsers} id="usersBtn">
-          Users
+          {displayedUsers ? "Chat" : "Users"}
         </button>
-        {displayedUsers && (
-          <section className="users">
-            <h3>Users:</h3>
-            {userList.map((user, index) => (
-              <p key={index}>{user.username}</p>
-            ))}
-          </section>
-        )}
-        <section className="chat-body">
+        <section
+          className="users"
+          style={{ display: displayedUsers ? "block" : "none" }}
+        >
+          <h3>Users:</h3>
+          {userList.map((user, index) => (
+            <p key={index}>{user.username}</p>
+          ))}
+        </section>
+        <section
+          className="chat-body"
+          style={{
+            display: displayedUsers && isSmallScreen ? "none" : "block",
+          }}
+        >
           <h3
             style={{
               textAlign: "center",
@@ -101,27 +116,15 @@ function Chat({ socket, username, room }) {
                 className="message"
                 id={username === data.username ? "you" : "other"}
               >
-                {username === data.username ? (
-                  <div className="messageDiv">
-                    <p className="message-meta" id="author">
-                      {data.username}:
-                    </p>
-                    <span className="message-content">{data.message}</span>
-                    <span className="message-meta" id="time">
-                      {data.time}
-                    </span>
-                  </div>
-                ) : (
-                  <div className="messageDiv">
-                    <p className="message-meta" id="author">
-                      {data.username}:
-                    </p>
-                    <span className="message-content">{data.message}</span>
-                    <span className="message-meta" id="time">
-                      {data.time}
-                    </span>
-                  </div>
-                )}
+                <div className="messageDiv">
+                  <p className="message-meta" id="author">
+                    {data.username}:
+                  </p>
+                  <span className="message-content">{data.message}</span>
+                  <span className="message-meta" id="time">
+                    {data.time}
+                  </span>
+                </div>
               </div>
             );
           })}
