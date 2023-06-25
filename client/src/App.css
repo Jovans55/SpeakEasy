@@ -40,6 +40,17 @@ body{
   box-shadow: 3px 3px;
 }
 
+#leaveBtn{
+  border: 3px solid black;
+  border-radius: 15px;
+  font-size: 20px;
+  padding: 5px;
+}
+
+#leaveBtn:hover{
+  box-shadow: 4px 4px 15px;
+}
+
 /* ________ CHAT _________ */
 
 .chat-window {
@@ -84,12 +95,13 @@ body{
 }
 
 #you {
-  border-bottom: 5px solid rgba(0, 0, 0, 0.502);
+  border-bottom: 3px solid rgba(0, 0, 0, 0.502);
+  padding: 5px;
   display: inline-block;
 }
 
 #other{
-  border-bottom: 5px solid rgba(0, 0, 0, 0.502);
+  border-bottom: 3px solid rgba(0, 0, 0, 0.502);
   padding: 5px;
 }
 
@@ -135,13 +147,13 @@ body{
 .chat-footer{
   text-align: center;
   background-color: #015B37;
+  padding: 20px;
 }
 
 .chat-footer input{
   border: 3px solid black;
   border-radius: 15px 0px 0px 15px;
   font-size: 25px;
-  margin-bottom: 20px;
   padding: 5px;
 }
 

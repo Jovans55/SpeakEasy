@@ -43,7 +43,6 @@ io.on("connection", (socket) => {
 
       io.to(room).emit("user_list", roomUsers[room]);
     }
-    // Leave the room
     socket.leave(room);
   });
 
