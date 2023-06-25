@@ -139,9 +139,13 @@ body{
 }
 
 .users{
-  width: 20vw;
+  width: 25vw;
+  height: 25vw;
   font-size: 2vw;
   background-color: #10764D;
+  overflow: scroll;
+  direction:ltr;
+  overflow-x: hidden;
 }
 
 .chat-footer{

@@ -4,6 +4,7 @@ function Chat({ socket, username, room }) {
   const [message, setMessage] = useState("");
   const [messageList, setMessageList] = useState([]);
   const [userList, setUserList] = useState([]);
+  const [displayedUsers, setDisplayedUsers] = useState(true);
 
   const sendMessage = async () => {
     const currentTime = new Date();
@@ -26,6 +27,10 @@ function Chat({ socket, username, room }) {
     await socket.emit("send_message", messageData);
     setMessageList((list) => [...list, messageData]);
     setMessage("");
+  };
+
+  const displayUsers = () => {
+    setDisplayedUsers(!displayedUsers);
   };
 
   useEffect(() => {
@@ -69,13 +74,26 @@ function Chat({ socket, username, room }) {
         <p>Welcome to {room} SpeakEasy!</p>
       </header>
       <div className="chatBodyHolder">
-        <section className="users">
-          <h3>Users:</h3>
-          {userList.map((user, index) => (
-            <p key={index}>{user.username}</p>
-          ))}
-        </section>
+        <button onClick={displayUsers} style={{ border: "3px solid black" }}>
+          Users
+        </button>
+        {displayedUsers && (
+          <section className="users">
+            <h3>Users:</h3>
+            {userList.map((user, index) => (
+              <p key={index}>{user.username}</p>
+            ))}
+          </section>
+        )}
         <section className="chat-body">
+          <h3
+            style={{
+              textAlign: "center",
+              borderBottom: "5px solid rgba(0, 0, 0, 0.502)",
+            }}
+          >
+            Start of chat history
+          </h3>
           {messageList.map((data) => {
             return (
               <div
