@@ -4,7 +4,7 @@ function Chat({ socket, username, room }) {
   const [message, setMessage] = useState("");
   const [messageList, setMessageList] = useState([]);
   const [userList, setUserList] = useState([]);
-  const [displayedUsers, setDisplayedUsers] = useState(true);
+  const [displayedUsers, setDisplayedUsers] = useState(false);
 
   const sendMessage = async () => {
     const currentTime = new Date();
@@ -89,7 +89,7 @@ function Chat({ socket, username, room }) {
           <h3
             style={{
               textAlign: "center",
-              borderBottom: "5px solid rgba(0, 0, 0, 0.502)",
+              borderBottom: "3px solid rgb(25, 25, 25)",
             }}
           >
             Start of chat history

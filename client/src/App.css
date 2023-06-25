@@ -1,16 +1,20 @@
 body{
-  background-color: #262626;
+  background-color: #EBD494;
   margin: 0%;
   height: 100%;
   display: flex;
   justify-content: center;
-  align-items: center;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.App{
+  margin-top: 200px;
 }
 
 .joinChatContainer{
   display: flex;
   flex-direction: column;
+  align-items: center;
   padding: 30px;
   gap: 15px;
   border: 7px solid #161616;
@@ -18,9 +22,9 @@ body{
   text-align: center;
   font-size: 200%;
   margin-bottom: 200px;
-  box-shadow: 15px 15px 5px;
-  background-color: #228F63;
-  text-shadow: 4px 4px black;
+  box-shadow: 15px 15px #472836;
+  background-color: #9AD2CB;
+  text-shadow: 5px 5px black;
 }
 
 .joinChatContainer input {
@@ -48,7 +52,7 @@ body{
 }
 
 #leaveBtn:hover{
-  box-shadow: 4px 4px 15px;
+  box-shadow: 4px 4px;
 }
 
 /* ________ CHAT _________ */
@@ -57,19 +61,20 @@ body{
   border: 10px solid #161616;
   border-radius: 17px;
   margin-bottom: 25px;
-  box-shadow: 15px 15px 5px;
-  background-color: #228F63;
+  box-shadow: 15px 15px #472836;
+  background-color: #68AFA5;
 }
 
 .chat-header {
-  font-size: 2.5vw;
+  font-size: 2rem;
   font-weight: bold;
   text-align: center;
   padding: 1px 15px;
   position: relative;
   top: 0;
   z-index: 9999;
-  background-color: #015B37;
+  background-color: #9AD2CB;
+  border-bottom: 5px solid black;
 }
 
 .chatBodyHolder{
@@ -82,8 +87,8 @@ body{
   justify-content: right;
   flex-direction: column;
   text-align: right;
-  width: 40vw;
-  height: 25vw;
+  width: 500px;
+  height: 350px;
   flex-grow: 1;
   overflow: scroll;
   direction:ltr;
@@ -95,24 +100,24 @@ body{
 }
 
 #you {
-  border-bottom: 3px solid rgba(0, 0, 0, 0.502);
+  border-bottom: 3px solid rgb(25, 25, 25);
   padding: 5px;
   display: inline-block;
 }
 
 #other{
-  border-bottom: 3px solid rgba(0, 0, 0, 0.502);
+  border-bottom: 3px solid rgb(25, 25, 25);
   padding: 5px;
 }
 
 #you .message-content{
   display: inline-block;
-  background-color: #658FB2;
+  background-color: #D7EBBA;
   margin-left: 5px;
-  font-size: 1.3vw;
-  padding: 1.3vw;
+  font-size: 1.3rem;
+  padding: 1rem;
   border-radius: 45px;
-  color: white;
+  color: black;
 }
 
 #you .message-meta{
@@ -123,34 +128,36 @@ body{
   display: inline-block;
   margin-left: 5px;
   background-color: #0b4778;
-  font-size: 1.3vw;
-  padding: 1.3vw;
+  font-size: 1.3rem;
+  padding: 1rem;
   border-radius: 45px;
   color: white;
 }
 
 .message-meta{
   display: inline-block;
-  font-size: 1.3vw;
+  font-size: 1rem;
 }
 
 #author{
+  font-size: 1.2rem;
   font-weight: bold;
 }
 
 .users{
-  width: 25vw;
-  height: 25vw;
-  font-size: 2vw;
-  background-color: #10764D;
+  width: 350px;
+  height: 350px;
+  font-size: 1.5rem;
+  background-color: #CAECE7;
   overflow: scroll;
   direction:ltr;
   overflow-x: hidden;
 }
 
 .chat-footer{
+  border-top: 5px solid black;
   text-align: center;
-  background-color: #015B37;
+  background-color: #9AD2CB;
   padding: 20px;
 }
 
@@ -169,11 +176,13 @@ body{
 }
 
 .chat-footer button:hover{
-  box-shadow: 4px 4px 15px;
+  box-shadow: 4px 4px;
 }
 
 #usersBtn{
-  background-color: #019258;
+  background-color: #68AFA5;
+  font-size: 1rem;
   font-weight: bold;
-  border: 3px solid black;
+  border: none;
+  border-right: 3px solid black;
 }
