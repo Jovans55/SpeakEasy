@@ -21,7 +21,6 @@ body{
   border-radius: 17px;
   text-align: center;
   font-size: 200%;
-  margin-bottom: 200px;
   box-shadow: 15px 15px #472836;
   background-color: #9AD2CB;
   text-shadow: 5px 5px black;
@@ -118,6 +117,7 @@ body{
   padding: 1rem;
   border-radius: 45px;
   color: black;
+  word-break: break-all;
 }
 
 #you .message-meta{
@@ -132,6 +132,7 @@ body{
   padding: 1rem;
   border-radius: 45px;
   color: white;
+  word-break: break-all;
 }
 
 .message-meta{
@@ -185,4 +186,34 @@ body{
   font-weight: bold;
   border: none;
   border-right: 3px solid black;
+}
+
+@media (max-width: 600px)  {
+  .App{
+    margin-top: 0px;
+    margin-left: 1px;
+  }
+  .joinChatContainer{
+    padding: 20px;
+    gap: 5px;
+    font-size: 150%;
+  }
+  .chat-window {
+    border-radius: 17px;
+    margin-bottom: 5px;
+  }
+  .chat-header {
+    font-size: 1.3rem;
+  }
+  .chat-body{
+    width: 100px;
+    height: 390px;
+  }
+  .chat-footer input{
+    border-radius: 15px;
+  }
+  
+  .chat-footer button{
+    border-radius: 15px;
+  }
 }
