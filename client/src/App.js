@@ -34,7 +34,7 @@ function App() {
     <div className="App">
       {!showChat ? (
         <>
-          <p style={{ color: "black", fontSize: "125%" }}>
+          <p style={{ color: "black", fontSize: "125%", fontWeight: "bold" }}>
             Don't know what room to join? Join main! 🥳
           </p>
           <div className="joinChatContainer">
