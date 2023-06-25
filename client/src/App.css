@@ -216,4 +216,9 @@ body{
   .chat-footer button{
     border-radius: 15px;
   }
+  .users{
+    width: 320px;
+    height: 390px;
+    border-right: 5px solid black;
+  }
 }
