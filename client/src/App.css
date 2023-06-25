@@ -45,7 +45,7 @@ body{
 .chat-window {
   border: 10px solid #161616;
   border-radius: 17px;
-  margin-bottom: 200px;
+  margin-bottom: 25px;
   box-shadow: 15px 15px 5px;
   background-color: #228F63;
 }
@@ -126,9 +126,9 @@ body{
   font-weight: bold;
 }
 
-.rooms{
+.users{
   width: 20vw;
-  font-size: 3vw;
+  font-size: 2vw;
   background-color: #10764D;
 }
 

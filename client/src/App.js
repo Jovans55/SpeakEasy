@@ -17,6 +17,13 @@ function App() {
     }
   };
 
+  const leaveRoom = () => {
+    if (room !== "") {
+      socket.emit("leave_room", room);
+      setShowChat(false);
+    }
+  };
+
   const handleKeyPress = (event) => {
     if (event.key === "Enter") {
       joinRoom();
@@ -54,7 +61,12 @@ function App() {
           </div>
         </>
       ) : (
-        <Chat socket={socket} username={username} room={room} />
+        <>
+          <Chat socket={socket} username={username} room={room} />
+          <button onClick={leaveRoom} id="leaveBtn">
+            Leave room
+          </button>
+        </>
       )}
     </div>
   );

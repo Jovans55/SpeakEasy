@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 function Chat({ socket, username, room }) {
   const [message, setMessage] = useState("");
   const [messageList, setMessageList] = useState([]);
+  const [userList, setUserList] = useState([]);
 
   const sendMessage = async () => {
     const currentTime = new Date();
@@ -42,7 +43,25 @@ function Chat({ socket, username, room }) {
         return newList;
       });
     });
-  }, [socket, setMessageList]);
+
+    socket.emit("join_room", { room, username });
+    socket.emit("request_user_list", room);
+
+    socket.on("user_list", (users) => {
+      let uniqUsers = [];
+      for (let i = 0; i < users.length; i++) {
+        if (!uniqUsers.some((user) => user.id === users[i].id)) {
+          uniqUsers.push(users[i]);
+        }
+      }
+      setUserList(uniqUsers);
+    });
+
+    return () => {
+      socket.off("receive_message");
+      socket.off("user_list");
+    };
+  }, [socket, setMessageList, room, username]);
 
   return (
     <div className="chat-window">
@@ -50,8 +69,11 @@ function Chat({ socket, username, room }) {
         <p>Welcome to {room} SpeakEasy!</p>
       </header>
       <div className="chatBodyHolder">
-        <section className="rooms">
-          <p>Users: {room}</p>
+        <section className="users">
+          <h3>Users:</h3>
+          {userList.map((user, index) => (
+            <p key={index}>{user.username}</p>
+          ))}
         </section>
         <section className="chat-body">
           {messageList.map((data) => {
