@@ -171,3 +171,9 @@ body{
 .chat-footer button:hover{
   box-shadow: 4px 4px 15px;
 }
+
+#usersBtn{
+  background-color: #019258;
+  font-weight: bold;
+  border: 3px solid black;
+}

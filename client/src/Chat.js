@@ -74,7 +74,7 @@ function Chat({ socket, username, room }) {
         <p>Welcome to {room} SpeakEasy!</p>
       </header>
       <div className="chatBodyHolder">
-        <button onClick={displayUsers} style={{ border: "3px solid black" }}>
+        <button onClick={displayUsers} id="usersBtn">
           Users
         </button>
         {displayedUsers && (
